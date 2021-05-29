@@ -17,19 +17,21 @@ namespace Diyetisyenlik.Models.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Diet()
         {
-            this.Food2 = new HashSet<Food2>();
-            this.Proportion = new HashSet<Proportion>();
-            this.SickDiet = new HashSet<SickDiet>();
+            this.Day = new HashSet<Day>();
         }
     
         public int DietId { get; set; }
         public string DietName { get; set; }
+        public string DietMeal { get; set; }
+        public int UserId { get; set; }
+        public string Day1 { get; set; }
+        public string Day2 { get; set; }
+        public string Day3 { get; set; }
+        public string Day4 { get; set; }
+        public string Day5 { get; set; }
+        public string Day6 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Food2> Food2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proportion> Proportion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SickDiet> SickDiet { get; set; }
+        public virtual ICollection<Day> Day { get; set; }
     }
 }

@@ -12,14 +12,14 @@ namespace Diyetisyenlik.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Food2
+    public partial class Day
     {
-        public int FoodId { get; set; }
-        public string FoodName { get; set; }
+        public int DayId { get; set; }
+        public int UserId { get; set; }
         public int DietId { get; set; }
-        public string Proportion { get; set; }
-        public string Meal { get; set; }
+        public int DietMeal { get; set; }
     
         public virtual Diet Diet { get; set; }
+        public virtual User User { get; set; }
     }
 }

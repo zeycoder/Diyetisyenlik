@@ -4,23 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5fde186fec894e6291d25a0ba1137b81" Name="Diagram1">
-        <EntityTypeShape EntityType="yazilimmimarisiModel.Diet" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="yazilimmimarisiModel.Disease" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="yazilimmimarisiModel.Food" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="yazilimmimarisiModel.Food2" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="yazilimmimarisiModel.Proportion" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="yazilimmimarisiModel.Sick" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="yazilimmimarisiModel.SickDiet" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="yazilimmimarisiModel.SickDisease" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="yazilimmimarisiModel.User" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="yazilimmimarisiModel.FK_Food2_Diet" ManuallyRouted="false" />
-        <AssociationConnector Association="yazilimmimarisiModel.FK_Proportion_Diet" ManuallyRouted="false" />
-        <AssociationConnector Association="yazilimmimarisiModel.FK_SickDiet_Diet" ManuallyRouted="false" />
-        <AssociationConnector Association="yazilimmimarisiModel.FK_SickDisease_Disease" ManuallyRouted="false" />
-        <AssociationConnector Association="yazilimmimarisiModel.FK_Proportion_Food" ManuallyRouted="false" />
-        <AssociationConnector Association="yazilimmimarisiModel.FK_SickDiet_Sick" ManuallyRouted="false" />
-        <AssociationConnector Association="yazilimmimarisiModel.FK_SickDisease_Sick" ManuallyRouted="false" />
+      <Diagram DiagramId="df028238f9a04274b47ecbf7644cb5ba" Name="Diagram1">
+        <EntityTypeShape EntityType="DietModel.Day" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietModel.Diet" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietModel.User" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="DietModel.FK_Day_Diet" ManuallyRouted="false" />
+        <AssociationConnector Association="DietModel.FK_Day_User" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

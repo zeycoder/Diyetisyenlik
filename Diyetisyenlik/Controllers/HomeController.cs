@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Diyetisyenlik.Models.Entity;
 
 namespace Diyetisyenlik.Controllers
 {
     public class HomeController : Controller
     {
+        DietEntities ym = new DietEntities();
         public ActionResult Index()
         {
             return View();
@@ -15,9 +17,9 @@ namespace Diyetisyenlik.Controllers
 
         public ActionResult Diyet()
         {
-            ViewBag.Message = "Your application description page.";
+            var diyetler = ym.Diet.ToList();
 
-            return View();
+            return View(diyetler);
         }
 
         public ActionResult Hastalik()

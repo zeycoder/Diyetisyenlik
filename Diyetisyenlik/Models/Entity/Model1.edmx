@@ -4,424 +4,180 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="yazilimmimarisiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DietModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Day">
+          <Key>
+            <PropertyRef Name="DayId" />
+          </Key>
+          <Property Name="DayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="DietId" Type="int" Nullable="false" />
+          <Property Name="DietMeal" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Diet">
           <Key>
             <PropertyRef Name="DietId" />
           </Key>
           <Property Name="DietId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DietName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="DietName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DietMeal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Day1" Type="nvarchar" MaxLength="250" />
+          <Property Name="Day2" Type="nvarchar" MaxLength="250" />
+          <Property Name="Day3" Type="nvarchar" MaxLength="250" />
+          <Property Name="Day4" Type="nvarchar" MaxLength="250" />
+          <Property Name="Day5" Type="nvarchar" MaxLength="250" />
+          <Property Name="Day6" Type="nvarchar" MaxLength="250" />
         </EntityType>
-        <EntityType Name="Disease">
+        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="DiseaseId" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="DiseaseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DiseaseName" Type="varchar" MaxLength="150" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Food">
-          <Key>
-            <PropertyRef Name="FoodId" />
-          </Key>
-          <Property Name="FoodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FoodName" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Food2">
-          <Key>
-            <PropertyRef Name="FoodId" />
-          </Key>
-          <Property Name="FoodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FoodName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="DietId" Type="int" Nullable="false" />
-          <Property Name="Proportion" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Meal" Type="varchar" MaxLength="20" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Proportion">
-          <Key>
-            <PropertyRef Name="ProportionId" />
-          </Key>
-          <Property Name="ProportionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DietId" Type="int" Nullable="false" />
-          <Property Name="FoodId" Type="int" Nullable="false" />
-          <Property Name="Proportion" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Meal" Type="varchar" MaxLength="20" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Sick">
-          <Key>
-            <PropertyRef Name="SickId" />
-          </Key>
-          <Property Name="SickId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Ä°dentityNumber" Type="nchar" MaxLength="11" Nullable="false" />
-        </EntityType>
-        <EntityType Name="SickDiet">
-          <Key>
-            <PropertyRef Name="SickDietId" />
-          </Key>
-          <Property Name="SickDietId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SickId" Type="int" Nullable="false" />
-          <Property Name="DietId" Type="int" Nullable="false" />
-          <Property Name="DietTime" Type="datetime" Nullable="false" />
-          <Property Name="Activity" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="SickDisease">
-          <Key>
-            <PropertyRef Name="SickDiseaseId" />
-          </Key>
-          <Property Name="SickDiseaseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SickId" Type="int" Nullable="false" />
-          <Property Name="DiseaseId" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdentityNumber" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="authority" Type="bit" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Food2_Diet">
+        <Association Name="FK_Day_Diet">
           <End Role="Diet" Type="Self.Diet" Multiplicity="1" />
-          <End Role="Food2" Type="Self.Food2" Multiplicity="*" />
+          <End Role="Day" Type="Self.Day" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Diet">
               <PropertyRef Name="DietId" />
             </Principal>
-            <Dependent Role="Food2">
+            <Dependent Role="Day">
               <PropertyRef Name="DietId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Proportion_Diet">
-          <End Role="Diet" Type="Self.Diet" Multiplicity="1" />
-          <End Role="Proportion" Type="Self.Proportion" Multiplicity="*" />
+        <Association Name="FK_Day_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Day" Type="Self.Day" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Diet">
-              <PropertyRef Name="DietId" />
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
             </Principal>
-            <Dependent Role="Proportion">
-              <PropertyRef Name="DietId" />
+            <Dependent Role="Day">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Proportion_Food">
-          <End Role="Food" Type="Self.Food" Multiplicity="1" />
-          <End Role="Proportion" Type="Self.Proportion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Food">
-              <PropertyRef Name="FoodId" />
-            </Principal>
-            <Dependent Role="Proportion">
-              <PropertyRef Name="FoodId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SickDiet_Diet">
-          <End Role="Diet" Type="Self.Diet" Multiplicity="1" />
-          <End Role="SickDiet" Type="Self.SickDiet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Diet">
-              <PropertyRef Name="DietId" />
-            </Principal>
-            <Dependent Role="SickDiet">
-              <PropertyRef Name="DietId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SickDiet_Sick">
-          <End Role="Sick" Type="Self.Sick" Multiplicity="1" />
-          <End Role="SickDiet" Type="Self.SickDiet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sick">
-              <PropertyRef Name="SickId" />
-            </Principal>
-            <Dependent Role="SickDiet">
-              <PropertyRef Name="SickId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SickDisease_Disease">
-          <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
-          <End Role="SickDisease" Type="Self.SickDisease" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Disease">
-              <PropertyRef Name="DiseaseId" />
-            </Principal>
-            <Dependent Role="SickDisease">
-              <PropertyRef Name="DiseaseId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SickDisease_Sick">
-          <End Role="Sick" Type="Self.Sick" Multiplicity="1" />
-          <End Role="SickDisease" Type="Self.SickDisease" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sick">
-              <PropertyRef Name="SickId" />
-            </Principal>
-            <Dependent Role="SickDisease">
-              <PropertyRef Name="SickId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="yazilimmimarisiModelStoreContainer">
+        <EntityContainer Name="DietModelStoreContainer">
+          <EntitySet Name="Day" EntityType="Self.Day" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Diet" EntityType="Self.Diet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Disease" EntityType="Self.Disease" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Food2" EntityType="Self.Food2" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Proportion" EntityType="Self.Proportion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Sick" EntityType="Self.Sick" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SickDiet" EntityType="Self.SickDiet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SickDisease" EntityType="Self.SickDisease" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Food2_Diet" Association="Self.FK_Food2_Diet">
+          <AssociationSet Name="FK_Day_Diet" Association="Self.FK_Day_Diet">
             <End Role="Diet" EntitySet="Diet" />
-            <End Role="Food2" EntitySet="Food2" />
+            <End Role="Day" EntitySet="Day" />
           </AssociationSet>
-          <AssociationSet Name="FK_Proportion_Diet" Association="Self.FK_Proportion_Diet">
-            <End Role="Diet" EntitySet="Diet" />
-            <End Role="Proportion" EntitySet="Proportion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Proportion_Food" Association="Self.FK_Proportion_Food">
-            <End Role="Food" EntitySet="Food" />
-            <End Role="Proportion" EntitySet="Proportion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SickDiet_Diet" Association="Self.FK_SickDiet_Diet">
-            <End Role="Diet" EntitySet="Diet" />
-            <End Role="SickDiet" EntitySet="SickDiet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SickDiet_Sick" Association="Self.FK_SickDiet_Sick">
-            <End Role="Sick" EntitySet="Sick" />
-            <End Role="SickDiet" EntitySet="SickDiet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SickDisease_Disease" Association="Self.FK_SickDisease_Disease">
-            <End Role="Disease" EntitySet="Disease" />
-            <End Role="SickDisease" EntitySet="SickDisease" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SickDisease_Sick" Association="Self.FK_SickDisease_Sick">
-            <End Role="Sick" EntitySet="Sick" />
-            <End Role="SickDisease" EntitySet="SickDisease" />
+          <AssociationSet Name="FK_Day_User" Association="Self.FK_Day_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Day" EntitySet="Day" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="yazilimmimarisiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DietModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Day">
+          <Key>
+            <PropertyRef Name="DayId" />
+          </Key>
+          <Property Name="DayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="DietId" Type="Int32" Nullable="false" />
+          <Property Name="DietMeal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Diet" Relationship="Self.FK_Day_Diet" FromRole="Day" ToRole="Diet" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Day_User" FromRole="Day" ToRole="User" />
+        </EntityType>
         <EntityType Name="Diet">
           <Key>
             <PropertyRef Name="DietId" />
           </Key>
           <Property Name="DietId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DietName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Food2" Relationship="Self.FK_Food2_Diet" FromRole="Diet" ToRole="Food2" />
-          <NavigationProperty Name="Proportion" Relationship="Self.FK_Proportion_Diet" FromRole="Diet" ToRole="Proportion" />
-          <NavigationProperty Name="SickDiet" Relationship="Self.FK_SickDiet_Diet" FromRole="Diet" ToRole="SickDiet" />
+          <Property Name="DietName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DietMeal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Day1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Day2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Day3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Day4" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Day5" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Day6" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Day" Relationship="Self.FK_Day_Diet" FromRole="Diet" ToRole="Day" />
         </EntityType>
-        <EntityType Name="Disease">
+        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="DiseaseId" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="DiseaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DiseaseName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="SickDisease" Relationship="Self.FK_SickDisease_Disease" FromRole="Disease" ToRole="SickDisease" />
-        </EntityType>
-        <EntityType Name="Food">
-          <Key>
-            <PropertyRef Name="FoodId" />
-          </Key>
-          <Property Name="FoodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Proportion" Relationship="Self.FK_Proportion_Food" FromRole="Food" ToRole="Proportion" />
-        </EntityType>
-        <EntityType Name="Food2">
-          <Key>
-            <PropertyRef Name="FoodId" />
-          </Key>
-          <Property Name="FoodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DietId" Type="Int32" Nullable="false" />
-          <Property Name="Proportion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Meal" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Diet" Relationship="Self.FK_Food2_Diet" FromRole="Food2" ToRole="Diet" />
-        </EntityType>
-        <EntityType Name="Proportion">
-          <Key>
-            <PropertyRef Name="ProportionId" />
-          </Key>
-          <Property Name="ProportionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DietId" Type="Int32" Nullable="false" />
-          <Property Name="FoodId" Type="Int32" Nullable="false" />
-          <Property Name="Proportion1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Meal" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Diet" Relationship="Self.FK_Proportion_Diet" FromRole="Proportion" ToRole="Diet" />
-          <NavigationProperty Name="Food" Relationship="Self.FK_Proportion_Food" FromRole="Proportion" ToRole="Food" />
-        </EntityType>
-        <EntityType Name="Sick">
-          <Key>
-            <PropertyRef Name="SickId" />
-          </Key>
-          <Property Name="SickId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Ä_dentityNumber" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="SickDiet" Relationship="Self.FK_SickDiet_Sick" FromRole="Sick" ToRole="SickDiet" />
-          <NavigationProperty Name="SickDisease" Relationship="Self.FK_SickDisease_Sick" FromRole="Sick" ToRole="SickDisease" />
-        </EntityType>
-        <EntityType Name="SickDiet">
-          <Key>
-            <PropertyRef Name="SickDietId" />
-          </Key>
-          <Property Name="SickDietId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SickId" Type="Int32" Nullable="false" />
-          <Property Name="DietId" Type="Int32" Nullable="false" />
-          <Property Name="DietTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Activity" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Diet" Relationship="Self.FK_SickDiet_Diet" FromRole="SickDiet" ToRole="Diet" />
-          <NavigationProperty Name="Sick" Relationship="Self.FK_SickDiet_Sick" FromRole="SickDiet" ToRole="Sick" />
-        </EntityType>
-        <EntityType Name="SickDisease">
-          <Key>
-            <PropertyRef Name="SickDiseaseId" />
-          </Key>
-          <Property Name="SickDiseaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SickId" Type="Int32" Nullable="false" />
-          <Property Name="DiseaseId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Disease" Relationship="Self.FK_SickDisease_Disease" FromRole="SickDisease" ToRole="Disease" />
-          <NavigationProperty Name="Sick" Relationship="Self.FK_SickDisease_Sick" FromRole="SickDisease" ToRole="Sick" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdentityNumber" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="authority" Type="Boolean" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Day" Relationship="Self.FK_Day_User" FromRole="User" ToRole="Day" />
         </EntityType>
-        <Association Name="FK_Food2_Diet">
+        <Association Name="FK_Day_Diet">
           <End Role="Diet" Type="Self.Diet" Multiplicity="1" />
-          <End Role="Food2" Type="Self.Food2" Multiplicity="*" />
+          <End Role="Day" Type="Self.Day" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Diet">
               <PropertyRef Name="DietId" />
             </Principal>
-            <Dependent Role="Food2">
+            <Dependent Role="Day">
               <PropertyRef Name="DietId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Proportion_Diet">
-          <End Role="Diet" Type="Self.Diet" Multiplicity="1" />
-          <End Role="Proportion" Type="Self.Proportion" Multiplicity="*" />
+        <Association Name="FK_Day_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Day" Type="Self.Day" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Diet">
-              <PropertyRef Name="DietId" />
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
             </Principal>
-            <Dependent Role="Proportion">
-              <PropertyRef Name="DietId" />
+            <Dependent Role="Day">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SickDiet_Diet">
-          <End Role="Diet" Type="Self.Diet" Multiplicity="1" />
-          <End Role="SickDiet" Type="Self.SickDiet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Diet">
-              <PropertyRef Name="DietId" />
-            </Principal>
-            <Dependent Role="SickDiet">
-              <PropertyRef Name="DietId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SickDisease_Disease">
-          <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
-          <End Role="SickDisease" Type="Self.SickDisease" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Disease">
-              <PropertyRef Name="DiseaseId" />
-            </Principal>
-            <Dependent Role="SickDisease">
-              <PropertyRef Name="DiseaseId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Proportion_Food">
-          <End Role="Food" Type="Self.Food" Multiplicity="1" />
-          <End Role="Proportion" Type="Self.Proportion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Food">
-              <PropertyRef Name="FoodId" />
-            </Principal>
-            <Dependent Role="Proportion">
-              <PropertyRef Name="FoodId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SickDiet_Sick">
-          <End Role="Sick" Type="Self.Sick" Multiplicity="1" />
-          <End Role="SickDiet" Type="Self.SickDiet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sick">
-              <PropertyRef Name="SickId" />
-            </Principal>
-            <Dependent Role="SickDiet">
-              <PropertyRef Name="SickId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SickDisease_Sick">
-          <End Role="Sick" Type="Self.Sick" Multiplicity="1" />
-          <End Role="SickDisease" Type="Self.SickDisease" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sick">
-              <PropertyRef Name="SickId" />
-            </Principal>
-            <Dependent Role="SickDisease">
-              <PropertyRef Name="SickId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="yazilimmimarisiEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DietEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Day" EntityType="Self.Day" />
           <EntitySet Name="Diet" EntityType="Self.Diet" />
-          <EntitySet Name="Disease" EntityType="Self.Disease" />
-          <EntitySet Name="Food" EntityType="Self.Food" />
-          <EntitySet Name="Food2" EntityType="Self.Food2" />
-          <EntitySet Name="Proportion" EntityType="Self.Proportion" />
-          <EntitySet Name="Sick" EntityType="Self.Sick" />
-          <EntitySet Name="SickDiet" EntityType="Self.SickDiet" />
-          <EntitySet Name="SickDisease" EntityType="Self.SickDisease" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK_Food2_Diet" Association="Self.FK_Food2_Diet">
+          <AssociationSet Name="FK_Day_Diet" Association="Self.FK_Day_Diet">
             <End Role="Diet" EntitySet="Diet" />
-            <End Role="Food2" EntitySet="Food2" />
+            <End Role="Day" EntitySet="Day" />
           </AssociationSet>
-          <AssociationSet Name="FK_Proportion_Diet" Association="Self.FK_Proportion_Diet">
-            <End Role="Diet" EntitySet="Diet" />
-            <End Role="Proportion" EntitySet="Proportion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SickDiet_Diet" Association="Self.FK_SickDiet_Diet">
-            <End Role="Diet" EntitySet="Diet" />
-            <End Role="SickDiet" EntitySet="SickDiet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SickDisease_Disease" Association="Self.FK_SickDisease_Disease">
-            <End Role="Disease" EntitySet="Disease" />
-            <End Role="SickDisease" EntitySet="SickDisease" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Proportion_Food" Association="Self.FK_Proportion_Food">
-            <End Role="Food" EntitySet="Food" />
-            <End Role="Proportion" EntitySet="Proportion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SickDiet_Sick" Association="Self.FK_SickDiet_Sick">
-            <End Role="Sick" EntitySet="Sick" />
-            <End Role="SickDiet" EntitySet="SickDiet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SickDisease_Sick" Association="Self.FK_SickDisease_Sick">
-            <End Role="Sick" EntitySet="Sick" />
-            <End Role="SickDisease" EntitySet="SickDisease" />
+          <AssociationSet Name="FK_Day_User" Association="Self.FK_Day_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Day" EntitySet="Day" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -429,90 +185,53 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="yazilimmimarisiModelStoreContainer" CdmEntityContainer="yazilimmimarisiEntities">
+        <EntityContainerMapping StorageEntityContainer="DietModelStoreContainer" CdmEntityContainer="DietEntities">
+          <EntitySetMapping Name="Day">
+            <EntityTypeMapping TypeName="DietModel.Day">
+              <MappingFragment StoreEntitySet="Day">
+                <ScalarProperty Name="DayId" ColumnName="DayId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DietId" ColumnName="DietId" />
+                <ScalarProperty Name="DietMeal" ColumnName="DietMeal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Diet">
-            <EntityTypeMapping TypeName="yazilimmimarisiModel.Diet">
+            <EntityTypeMapping TypeName="DietModel.Diet">
               <MappingFragment StoreEntitySet="Diet">
                 <ScalarProperty Name="DietId" ColumnName="DietId" />
                 <ScalarProperty Name="DietName" ColumnName="DietName" />
+                <ScalarProperty Name="DietMeal" ColumnName="DietMeal" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Day1" ColumnName="Day1" />
+                <ScalarProperty Name="Day2" ColumnName="Day2" />
+                <ScalarProperty Name="Day3" ColumnName="Day3" />
+                <ScalarProperty Name="Day4" ColumnName="Day4" />
+                <ScalarProperty Name="Day5" ColumnName="Day5" />
+                <ScalarProperty Name="Day6" ColumnName="Day6" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Disease">
-            <EntityTypeMapping TypeName="yazilimmimarisiModel.Disease">
-              <MappingFragment StoreEntitySet="Disease">
-                <ScalarProperty Name="DiseaseId" ColumnName="DiseaseId" />
-                <ScalarProperty Name="DiseaseName" ColumnName="DiseaseName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Food">
-            <EntityTypeMapping TypeName="yazilimmimarisiModel.Food">
-              <MappingFragment StoreEntitySet="Food">
-                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
-                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Food2">
-            <EntityTypeMapping TypeName="yazilimmimarisiModel.Food2">
-              <MappingFragment StoreEntitySet="Food2">
-                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
-                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
-                <ScalarProperty Name="DietId" ColumnName="DietId" />
-                <ScalarProperty Name="Proportion" ColumnName="Proportion" />
-                <ScalarProperty Name="Meal" ColumnName="Meal" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Proportion">
-            <EntityTypeMapping TypeName="yazilimmimarisiModel.Proportion">
-              <MappingFragment StoreEntitySet="Proportion">
-                <ScalarProperty Name="ProportionId" ColumnName="ProportionId" />
-                <ScalarProperty Name="DietId" ColumnName="DietId" />
-                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
-                <ScalarProperty Name="Proportion1" ColumnName="Proportion" />
-                <ScalarProperty Name="Meal" ColumnName="Meal" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sick">
-            <EntityTypeMapping TypeName="yazilimmimarisiModel.Sick">
-              <MappingFragment StoreEntitySet="Sick">
-                <ScalarProperty Name="SickId" ColumnName="SickId" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Ä_dentityNumber" ColumnName="Ä°dentityNumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SickDiet">
-            <EntityTypeMapping TypeName="yazilimmimarisiModel.SickDiet">
-              <MappingFragment StoreEntitySet="SickDiet">
-                <ScalarProperty Name="SickDietId" ColumnName="SickDietId" />
-                <ScalarProperty Name="SickId" ColumnName="SickId" />
-                <ScalarProperty Name="DietId" ColumnName="DietId" />
-                <ScalarProperty Name="DietTime" ColumnName="DietTime" />
-                <ScalarProperty Name="Activity" ColumnName="Activity" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SickDisease">
-            <EntityTypeMapping TypeName="yazilimmimarisiModel.SickDisease">
-              <MappingFragment StoreEntitySet="SickDisease">
-                <ScalarProperty Name="SickDiseaseId" ColumnName="SickDiseaseId" />
-                <ScalarProperty Name="SickId" ColumnName="SickId" />
-                <ScalarProperty Name="DiseaseId" ColumnName="DiseaseId" />
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DietModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="yazilimmimarisiModel.User">
+            <EntityTypeMapping TypeName="DietModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+                <ScalarProperty Name="authority" ColumnName="authority" />
+                <ScalarProperty Name="password" ColumnName="password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

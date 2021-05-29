@@ -14,9 +14,20 @@ namespace Diyetisyenlik.Models.Entity
     
     public partial class User
     {
-        public int Id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.Day = new HashSet<Day>();
+        }
+    
+        public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string IdentityNumber { get; set; }
+        public bool authority { get; set; }
+        public string password { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Day> Day { get; set; }
     }
 }
