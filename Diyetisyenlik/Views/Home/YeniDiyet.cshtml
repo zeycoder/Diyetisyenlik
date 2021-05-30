@@ -1,0 +1,37 @@
+﻿@model Diyetisyenlik.Models.Entity.Diet
+@{
+    ViewBag.Title = "YeniDiyet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Diyet Adı</label>
+        <input type="text" class="form-control" name="DietName" />
+
+        <label>Diyet Öğünü</label>
+        <input type="text" class="form-control" name="DietMeal" />
+
+        <label> Birinci Gün</label>
+        <input type="text" class="form-control" name="Day1" />
+
+        <label> İkinci Gün</label>
+        <input type="text" class="form-control" name="Day2" />
+
+        <label> Üçüncü Gün</label>
+        <input type="text" class="form-control" name="Day3" />
+
+        <label> Dördüncü Gün</label>
+        <input type="text" class="form-control" name="Day4" />
+
+        <label> Beşinci Gün</label>
+        <input type="text" class="form-control" name="Day5" />
+
+        <label> Altıncı Gün</label>
+        <input type="text" class="form-control" name="Day6" />
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info">Yeni Diyet Ekle</button>
+    </div>
+</form>
+

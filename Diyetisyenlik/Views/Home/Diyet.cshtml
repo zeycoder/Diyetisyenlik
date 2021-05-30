@@ -1,5 +1,6 @@
-﻿@using Diyetisyenlik.Models.Entity
-
+﻿
+@using Diyetisyenlik.Models.Entity
+@model List<Diet>
 
 @{
     ViewBag.Title = "Diyet";
@@ -8,12 +9,37 @@
 
 <table class="table table-bordered">
     <tr>
-        <th>Diyet Sayfasına Hoşgeldiniz</th>
-        <th></th>
-
+        <th>Diyet Id</th>
+        <th>Diyet Adı</th>
+        <th>Diyet Öğünü</th>
+        <th>Hasta Adı</th>
+        <th>Pazartesi</th>
+        <th>Salı</th>
+        <th>Çarşamba</th>
+        <th>Perşembe</th>
+        <th>Cuma</th>
+        <th>Cumartesi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
     </tr>
     <tbody>
-       
+        @foreach (var diyetler in Model)
+        {
+        <tr>
+            <td>@diyetler.DietId</td>
+            <td>@diyetler.DietName</td>
+            <td>@diyetler.DietMeal</td>
+            <td>@diyetler.UserId</td>
+            <td>@diyetler.Day1</td>
+            <td>@diyetler.Day2</td>
+            <td>@diyetler.Day3</td>
+            <td>@diyetler.Day4</td>
+            <td>@diyetler.Day5</td>
+            <td>@diyetler.Day6</td>
+            <td><a href="/Diet/Sil/@diyetler.DietId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Diet/Güncelle/@diyetler.DietId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+        }
     </tbody>
 </table>
-
+<a href="/Home/YeniDiyet/" class="btn btn-primary">Yeni Diyet Ekle</a>

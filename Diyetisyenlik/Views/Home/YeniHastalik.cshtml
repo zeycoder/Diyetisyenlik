@@ -1,0 +1,16 @@
+﻿@model Diyetisyenlik.Models.Entity.Disease
+@{
+    ViewBag.Title = "YeniHastalik";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div  style="margin-top:15px">
+        <label>Hastalık Adı</label>
+        <input type="text" name="DiseaseName" />
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info">Yeni Hastalık Ekle</button>
+    </div>
+</form>
+

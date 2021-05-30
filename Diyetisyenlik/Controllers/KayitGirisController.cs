@@ -10,7 +10,7 @@ namespace Diyetisyenlik.Controllers
     public class KayitGirisController : Controller
     {
         // GET: KayitGiris
-        DietEntities ym = new DietEntities();
+        DietEntities1 d = new DietEntities1();
         public ActionResult Index()
         {
             //if (Session["KullaniciId"] == null)
@@ -32,13 +32,13 @@ namespace Diyetisyenlik.Controllers
         [HttpPost]
         public ActionResult Giris(User u)
         {
-         
-            var kullanici = ym.User.FirstOrDefault(x => x.IdentityNumber == u.IdentityNumber && x.password == u.password);
-            if (kullanici != null)
+            var kullanici2 = d.User.FirstOrDefault(x => x.IdentityNumber == u.IdentityNumber && x.password == u.password);
+            
+            if (kullanici2 != null)
             {
 
-                //Session["KullaniciId"] = kullanici.UserId;
-                //Session["Unvan"] = kullanici.authority;
+                Session["KullaniciId"] = kullanici2.UserId;
+                Session["Unvan"] = kullanici2.authority;
                 return RedirectToAction("Diyet", "Home");
             }
             else
@@ -46,5 +46,6 @@ namespace Diyetisyenlik.Controllers
                 return View();
             }
         }
+        
     }
 }

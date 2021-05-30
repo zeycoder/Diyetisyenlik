@@ -1,8 +1,31 @@
-﻿
+﻿@using Diyetisyenlik.Models.Entity;
+@model List<Disease>
 @{
     ViewBag.Title = "Hastalik";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>HASTALIK EKLE ÇIKAR GÜNCELLE SAYFAMIZ</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Hastalık Id</th>
+        <th>Hastalık Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @foreach(var hastalik in Model)
+        {
+        <tr>
+            <td>@hastalik.DiseaseId</td>
+            <td>@hastalik.DiseaseName</td>
+            <td><a href="/Hastalik/Sil/@hastalik.DiseaseId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Hastalik/Güncelle/@hastalik.DiseaseId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+        }
+       
+    </tbody>
+</table>
+<a href="/Home/YeniHastalik/" class="btn btn-primary">Yeni Hastalik</a>
+
+
 

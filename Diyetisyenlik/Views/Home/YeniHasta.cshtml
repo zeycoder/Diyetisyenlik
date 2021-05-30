@@ -1,0 +1,25 @@
+﻿@model Diyetisyenlik.Models.Entity.Disease
+@{
+    ViewBag.Title = "YeniHasta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Hasta Adı</label>
+        <input type="text" class="form-control" name="FirstName" />
+
+        <label>Hasta Soyadı</label>
+        <input type="text" class="form-control" name="LastName" />
+
+        <label>Hasta TC</label>
+        <input type="text" class="form-control" name="IdentityNumber" />
+
+        <label>Hastalık Seçiniz</label>
+        @Html.DropDownListFor(m => m.DiseaseName, (List<SelectListItem>)ViewBag.hastalar, new {@class="form-control"})
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info">Yeni Hasta Ekle</button>
+    </div>
+</form>
+

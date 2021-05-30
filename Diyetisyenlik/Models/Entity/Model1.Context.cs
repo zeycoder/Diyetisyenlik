@@ -13,10 +13,10 @@ namespace Diyetisyenlik.Models.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DietEntities : DbContext
+    public partial class DietEntities1 : DbContext
     {
-        public DietEntities()
-            : base("name=DietEntities")
+        public DietEntities1()
+            : base("name=DietEntities1")
         {
         }
     
@@ -27,6 +27,7 @@ namespace Diyetisyenlik.Models.Entity
     
         public virtual DbSet<Day> Day { get; set; }
         public virtual DbSet<Diet> Diet { get; set; }
+        public virtual DbSet<Disease> Disease { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }

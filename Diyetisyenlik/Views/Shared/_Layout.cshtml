@@ -20,10 +20,22 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Giriş Yap", "Giris", "KayitGiris")</li>
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Diyet", "Diyet", "Home")</li>
-                    <li>@Html.ActionLink("Hastalik", "Hastalik", "Home")</li>
+                    @if (Session["KullaniciId"] != null)
+                    {
+                        <li>@Html.ActionLink("Çıkış Yap", "Cikis", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Giriş Yap", "Giris", "KayitGiris")</li>
+                    }
+
+                    @if (Convert.ToInt32(Session["Unvan"]) == 2 || Convert.ToInt32(Session["Unvan"]) == 1)
+                    {
+                        <li>@Html.ActionLink("Diyet", "Diyet", "Home")</li>
+                        <li>@Html.ActionLink("Hastalik", "Hastalik", "Home")</li>
+                        <li>@Html.ActionLink("Hastalar", "Hasta", "Home")</li>
+                    }
+
                 </ul>
             </div>
         </div>
