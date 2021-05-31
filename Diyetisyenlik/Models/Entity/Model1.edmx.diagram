@@ -4,15 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f40eb97b446842749dc1a99f4760cfb1" Name="Diagram1">
-        <EntityTypeShape EntityType="DietModel.Day" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DietModel.Diet" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DietModel.Disease" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DietModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DietModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="656944d520f04d3b806a6d7bdc398f90" Name="Diagram1">
+        <EntityTypeShape EntityType="DietModel.Day" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietModel.Diet" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietModel.Disease" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietModel.Sick" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietModel.User" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
         <AssociationConnector Association="DietModel.FK_Day_Diet" ManuallyRouted="false" />
         <AssociationConnector Association="DietModel.FK_Day_User" ManuallyRouted="false" />
-        <AssociationConnector Association="DietModel.FK_User_Disease" ManuallyRouted="false" />
+        <AssociationConnector Association="DietModel.FK_Sick_Diet" ManuallyRouted="false" />
+        <AssociationConnector Association="DietModel.FK_Sick_Disease" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

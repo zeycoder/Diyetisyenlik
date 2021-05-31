@@ -26,10 +26,8 @@ namespace Diyetisyenlik.Models.Entity
         public string IdentityNumber { get; set; }
         public Nullable<byte> authority { get; set; }
         public string password { get; set; }
-        public Nullable<int> DiseaseId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Day> Day { get; set; }
-        public virtual Disease Disease { get; set; }
     }
 }

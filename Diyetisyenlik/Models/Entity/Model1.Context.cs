@@ -28,6 +28,7 @@ namespace Diyetisyenlik.Models.Entity
         public virtual DbSet<Day> Day { get; set; }
         public virtual DbSet<Diet> Diet { get; set; }
         public virtual DbSet<Disease> Disease { get; set; }
+        public virtual DbSet<Sick> Sick { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }

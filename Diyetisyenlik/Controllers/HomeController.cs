@@ -40,7 +40,7 @@ namespace Diyetisyenlik.Controllers
         {
             ym.Diet.Add(diet);
             ym.SaveChanges();
-            return View();
+            return RedirectToAction("Diyet");
         }
         public ActionResult Hastalik()
         {
@@ -59,11 +59,11 @@ namespace Diyetisyenlik.Controllers
         {
             ym.Disease.Add(disease);
             ym.SaveChanges();
-            return View();
+            return RedirectToAction("Hastalik");
         }
         public ActionResult Hasta() /* Hastalar Lislteleme Kodu  */
         {
-            var hastalar= ym.User.ToList();
+            var hastalar= ym.Sick.ToList();
             return View(hastalar);
         }
 
@@ -77,15 +77,23 @@ namespace Diyetisyenlik.Controllers
                                               Value = i.DiseaseId.ToString()
                                           }).ToList();
             ViewBag.hastalar = hasta;
+
+            List<SelectListItem> diyet = (from i in ym.Diet.ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = i.DietName,
+                                              Value = i.DietId.ToString()
+                                          }).ToList();
+            ViewBag.diyetler = diyet;
             return View();
         }
 
         [HttpPost]
-        public ActionResult YeniHasta(User user)
+        public ActionResult YeniHasta(Sick sick)
         {
-            ym.User.Add(user);
+            ym.Sick.Add(sick);
             ym.SaveChanges();
-            return View();
+            return RedirectToAction("Hasta");
         }
 
         public ActionResult Cikis()

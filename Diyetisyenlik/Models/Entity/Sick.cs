@@ -12,18 +12,16 @@ namespace Diyetisyenlik.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Disease
+    public partial class Sick
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Disease()
-        {
-            this.Sick = new HashSet<Sick>();
-        }
-    
+        public int SickId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string IdentityNumber { get; set; }
         public int DiseaseId { get; set; }
-        public string DiseaseName { get; set; }
+        public int DietId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sick> Sick { get; set; }
+        public virtual Diet Diet { get; set; }
+        public virtual Disease Disease { get; set; }
     }
 }

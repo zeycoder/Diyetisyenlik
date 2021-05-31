@@ -16,7 +16,24 @@
         <input type="text" class="form-control" name="IdentityNumber" />
 
         <label>Hastalık Seçiniz</label>
-        @Html.DropDownListFor(m => m.DiseaseName, (List<SelectListItem>)ViewBag.hastalar, new {@class="form-control"})
+        @*@Html.DropDownListFor(m => m.DiseaseName, (List<SelectListItem>)ViewBag.hastalar, new { @class = "form-control" })*@
+        <select name="DiseaseId" class="form-control">
+            @foreach (var item in ViewBag.hastalar)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+
+        </select>
+
+        <label>Diyet Seçiniz</label>
+        @*@Html.DropDownList("DietName", (List<SelectListItem>)ViewBag.diyetler, new { @class = "form-control" })*@
+        <select name="DietId" class="form-control">
+            @foreach (var item in ViewBag.diyetler)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+
+        </select>
     </div>
     <div style="margin-top:15px;">
         <button class="btn btn-info">Yeni Hasta Ekle</button>

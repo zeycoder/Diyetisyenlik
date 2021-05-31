@@ -18,12 +18,12 @@ namespace Diyetisyenlik.Models.Entity
         public Diet()
         {
             this.Day = new HashSet<Day>();
+            this.Sick = new HashSet<Sick>();
         }
     
         public int DietId { get; set; }
         public string DietName { get; set; }
         public string DietMeal { get; set; }
-        public int UserId { get; set; }
         public string Day1 { get; set; }
         public string Day2 { get; set; }
         public string Day3 { get; set; }
@@ -33,5 +33,7 @@ namespace Diyetisyenlik.Models.Entity
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Day> Day { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sick> Sick { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿@using Diyetisyenlik.Models.Entity
-@model List<User>
+@model List<Sick>
 @{
     ViewBag.Title = "Hasta";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,6 +11,7 @@
         <th>Hasta Soyadı</th>
         <th>Kimlik Bilgisi</th>
         <th>Hastalık Adı</th>
+        <th>Diyet Adı</th>
         <th>Sil</th>
         <th>Güncelle</th>
     </tr>
@@ -18,13 +19,14 @@
         @foreach(var hastalar in Model)
         {
         <tr>
-            <td>@hastalar.UserId</td>
+            <td>@hastalar.SickId</td>
             <td>@hastalar.FirstName</td>
             <td>@hastalar.LastName</td>
             <td>@hastalar.IdentityNumber</td>
             <td>@hastalar.Disease.DiseaseName</td>
-            <td><a href="/Hasta/Sil/@hastalar.UserId" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Hasta/Güncelle/@hastalar.UserId" class="btn btn-success">Güncelle</a></td>
+            <td>@hastalar.Diet.DietName</td>
+            <td><a href="/Hasta/Sil/@hastalar.SickId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Hasta/Güncelle/@hastalar.SickId" class="btn btn-success">Güncelle</a></td>
         </tr>
         }
     </tbody>
