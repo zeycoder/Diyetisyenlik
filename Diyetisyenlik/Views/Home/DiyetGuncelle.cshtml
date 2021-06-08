@@ -1,0 +1,43 @@
+﻿@model Diyetisyenlik.Models.Entity.Diet
+@{
+    ViewBag.Title = "DiyetGuncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("dytGuncelle", "Home", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.DietId)
+    @Html.TextBoxFor(m => m.DietId, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.DietName)
+    @Html.TextBoxFor(m => m.DietName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.DietMeal)
+    @Html.TextBoxFor(m => m.DietMeal, new { @class = "form-control" })
+    
+    <br />
+    @Html.LabelFor(m => m.Day1)
+    @Html.TextBoxFor(m => m.Day1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.Day2)
+    @Html.TextBoxFor(m => m.Day2, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.Day3)
+    @Html.TextBoxFor(m => m.Day3, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.Day4)
+    @Html.TextBoxFor(m => m.Day4, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.Day5)
+    @Html.TextBoxFor(m => m.Day5, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.Day6)
+    @Html.TextBoxFor(m => m.Day6, new { @class = "form-control" })
+    
+</div>
+    <div>
+        <button class="btn btn-warning">Diyet Güncelle</button>
+    </div>
+}
+
+

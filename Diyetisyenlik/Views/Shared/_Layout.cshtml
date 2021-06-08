@@ -36,6 +36,11 @@
                         <li>@Html.ActionLink("Hastalar", "Hasta", "Home")</li>
                     }
 
+                    @if (Convert.ToInt32(Session["Unvan"]) == 1)
+                    {
+                        <li>@Html.ActionLink("Diyetisyenler", "Diyetisyen", "Home")</li>
+                    }
+
                 </ul>
             </div>
         </div>

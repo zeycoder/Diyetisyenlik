@@ -10,7 +10,7 @@ namespace Diyetisyenlik.Controllers
     public class KayitGirisController : Controller
     {
         // GET: KayitGiris
-        DietEntities1 d = new DietEntities1();
+        DietEntities2 d = new DietEntities2();
         public ActionResult Index()
         {
             //if (Session["KullaniciId"] == null)

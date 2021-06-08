@@ -1,0 +1,28 @@
+﻿@model Diyetisyenlik.Models.Entity.User
+@{
+    ViewBag.Title = "YeniDiyetisyen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Diyetisyen Adı</label>
+        <input type="text" class="form-control" name="FirstName" />
+
+        <label>Diyetisyen Soyadı</label>
+        <input type="text" class="form-control" name="LastName" />
+
+        <label>Diyetisyen Kimlik</label>
+        <input type="text" class="form-control" name="IdentityNumber" />
+
+        <label>Diyetisyen Şifre</label>
+        <input type="text" class="form-control" name="password" />
+
+        <input type="hidden" class="form-control" name="authority" value="2" />
+
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info">Yeni Diyetisyen Ekle</button>
+    </div>
+</form>
+

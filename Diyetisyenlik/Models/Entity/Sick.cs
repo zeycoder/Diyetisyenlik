@@ -15,11 +15,11 @@ namespace Diyetisyenlik.Models.Entity
     public partial class Sick
     {
         public int SickId { get; set; }
-        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string IdentityNumber { get; set; }
-        public int DiseaseId { get; set; }
-        public int DietId { get; set; }
+        public Nullable<int> DiseaseId { get; set; }
+        public Nullable<int> DietId { get; set; }
+        public string FirstName { get; set; }
     
         public virtual Diet Diet { get; set; }
         public virtual Disease Disease { get; set; }

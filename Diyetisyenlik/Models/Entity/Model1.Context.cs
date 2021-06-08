@@ -13,10 +13,10 @@ namespace Diyetisyenlik.Models.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DietEntities1 : DbContext
+    public partial class DietEntities2 : DbContext
     {
-        public DietEntities1()
-            : base("name=DietEntities1")
+        public DietEntities2()
+            : base("name=DietEntities2")
         {
         }
     

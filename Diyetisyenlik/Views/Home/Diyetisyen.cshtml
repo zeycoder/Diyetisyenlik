@@ -1,0 +1,33 @@
+﻿@using Diyetisyenlik.Models.Entity
+@model List<User>
+@{
+    ViewBag.Title = "Diyetisyen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table table-bordered">
+    <tr>
+        <th>Diyetisyen Id</th>
+        <th>Diyetisyen Adı</th>
+        <th>Diyetisyen Soyadı</th>
+        <th>Kimlik Bilgisi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @foreach (var diyetisyen in Model.Where(m => m.authority == 2))
+        {
+            <tr>
+                <td>@diyetisyen.UserId</td>
+                <td>@diyetisyen.FirstName</td>
+                <td>@diyetisyen.LastName</td>
+                <td>@diyetisyen.IdentityNumber</td>
+                <td><a href="/Home/DiyetisyenSil/@diyetisyen.UserId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Home/DiyetisyenGuncelle/@diyetisyen.UserId" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Home/YeniDiyetisyen/" class="btn btn-primary">Yeni Diyetisyen Ekle</a>
+
+
+

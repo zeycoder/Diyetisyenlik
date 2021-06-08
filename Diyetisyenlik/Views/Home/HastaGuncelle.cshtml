@@ -1,0 +1,33 @@
+﻿@model Diyetisyenlik.Models.Entity.Sick
+@{
+    ViewBag.Title = "HastaGuncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("hstGuncelle", "Home", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.SickId)
+    @Html.TextBoxFor(m => m.SickId, new { @class = "form-control" })
+   
+    <br />
+
+    @Html.LabelFor(m => m.FirstName)
+    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(m => m.LastName)
+    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(m => m.Diet.DietName)
+    @Html.TextBoxFor(m => m.Diet.DietName, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(m => m.Disease.DiseaseName)
+    @Html.TextBoxFor(m => m.Disease.DiseaseName, new { @class = "form-control" })
+</div>
+    <div>
+        <button class="btn btn-warning">Hasta Güncelle</button>
+    </div>
+}
+

@@ -227,6 +227,12 @@
     <Content Include="Views\Home\YeniHasta.cshtml" />
     <Content Include="Views\Home\YeniHastalik.cshtml" />
     <Content Include="Views\Home\YeniDiyet.cshtml" />
+    <Content Include="Views\Home\Diyetisyen.cshtml" />
+    <Content Include="Views\Home\YeniDiyetisyen.cshtml" />
+    <Content Include="Views\Home\DiyetGuncelle.cshtml" />
+    <Content Include="Views\Home\DiyetisyenGuncelle.cshtml" />
+    <Content Include="Views\Home\HastaGuncelle.cshtml" />
+    <Content Include="Views\Home\HastalikGuncelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

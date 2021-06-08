@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DietModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DietModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Day">
           <Key>
             <PropertyRef Name="DayId" />
@@ -40,11 +40,11 @@
             <PropertyRef Name="SickId" />
           </Key>
           <Property Name="SickId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="IdentityNumber" Type="nchar" MaxLength="11" Nullable="false" />
-          <Property Name="DiseaseId" Type="int" Nullable="false" />
-          <Property Name="DietId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="IdentityNumber" Type="nchar" MaxLength="11" />
+          <Property Name="DiseaseId" Type="int" />
+          <Property Name="DietId" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -64,8 +64,8 @@
           <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdentityNumber" Type="nchar" MaxLength="11" Nullable="false" />
-          <Property Name="authority" Type="tinyint" />
-          <Property Name="password" Type="nvarchar" MaxLength="20" />
+          <Property Name="authority" Type="tinyint" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="FK_Day_Diet">
           <End Role="Diet" Type="Self.Diet" Multiplicity="1" />
@@ -92,7 +92,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sick_Diet">
-          <End Role="Diet" Type="Self.Diet" Multiplicity="1" />
+          <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
           <End Role="Sick" Type="Self.Sick" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Diet">
@@ -104,7 +104,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sick_Disease">
-          <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+          <End Role="Disease" Type="Self.Disease" Multiplicity="0..1" />
           <End Role="Sick" Type="Self.Sick" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Disease">
@@ -139,8 +139,7 @@
             <End Role="Sick" EntitySet="Sick" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DietModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -184,13 +183,13 @@
             <PropertyRef Name="SickId" />
           </Key>
           <Property Name="SickId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IdentityNumber" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="DiseaseId" Type="Int32" Nullable="false" />
-          <Property Name="DietId" Type="Int32" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdentityNumber" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="DiseaseId" Type="Int32" />
+          <Property Name="DietId" Type="Int32" />
           <NavigationProperty Name="Diet" Relationship="Self.FK_Sick_Diet" FromRole="Sick" ToRole="Diet" />
           <NavigationProperty Name="Disease" Relationship="Self.FK_Sick_Disease" FromRole="Sick" ToRole="Disease" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -210,8 +209,8 @@
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdentityNumber" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="authority" Type="Byte" />
-          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="authority" Type="Byte" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Day" Relationship="Self.FK_Day_User" FromRole="User" ToRole="Day" />
         </EntityType>
         <Association Name="FK_Day_Diet">
@@ -239,7 +238,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sick_Diet">
-          <End Role="Diet" Type="Self.Diet" Multiplicity="1" />
+          <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
           <End Role="Sick" Type="Self.Sick" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Diet">
@@ -251,7 +250,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sick_Disease">
-          <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+          <End Role="Disease" Type="Self.Disease" Multiplicity="0..1" />
           <End Role="Sick" Type="Self.Sick" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Disease">
@@ -262,7 +261,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DietEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DietEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Day" EntityType="Self.Day" />
           <EntitySet Name="Diet" EntityType="Self.Diet" />
           <EntitySet Name="Disease" EntityType="Self.Disease" />
@@ -291,7 +290,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DietModelStoreContainer" CdmEntityContainer="DietEntities1">
+        <EntityContainerMapping StorageEntityContainer="DietModelStoreContainer" CdmEntityContainer="DietEntities2">
           <EntitySetMapping Name="Day">
             <EntityTypeMapping TypeName="DietModel.Day">
               <MappingFragment StoreEntitySet="Day">
@@ -328,8 +327,8 @@
           <EntitySetMapping Name="Sick">
             <EntityTypeMapping TypeName="DietModel.Sick">
               <MappingFragment StoreEntitySet="Sick">
-                <ScalarProperty Name="SickId" ColumnName="SickId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SickId" ColumnName="SickId" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
                 <ScalarProperty Name="DiseaseId" ColumnName="DiseaseId" />

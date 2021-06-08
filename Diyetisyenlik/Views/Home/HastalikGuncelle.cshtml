@@ -1,0 +1,21 @@
+﻿@model Diyetisyenlik.Models.Entity.Disease
+@{
+    ViewBag.Title = "HastalikGuncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("hstlkGuncelle", "Home", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.DiseaseId)
+    @Html.TextBoxFor(m => m.DiseaseId, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.DiseaseName)
+    @Html.TextBoxFor(m => m.DiseaseName, new { @class = "form-control" })
+</div>
+    <div>
+        <button class="btn btn-warning">Hastalık Güncelle</button>
+    </div>
+
+}
+
+
